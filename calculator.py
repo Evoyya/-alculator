@@ -1,5 +1,5 @@
 def culc(string):
-    string = string.strip() # убираю лишние пробелы
+    string = string.strip() # убираю лишние пробелы вначале и в конце 
     list_line = string.split(' ')
     # list_line — список с элементами входящей строки
 
@@ -67,8 +67,8 @@ def culc(string):
     else:
         delit = '1' + '0' * len(str_result) # делитель чтобы разделять числа >= 100
         for el in range(len(str_result)):
-            if int(str(int_result % int(delit) - int_result % int(delit[:-1]))) != 0 and not(11 <= int(str(int_result % int(delit))) <= 19):
-                total += invbook[str(int_result % int(delit) - int_result % int(delit[:-1]))] + ' '
+            if int(str(int_result % int(delit) - int_result % int(delit[:-1]))) != 0 and not(11 <= int(str(int_result % int(delit))) <= 19):# не берём уникальные числа, взяли уже раньше 
+                total += invbook[str(int_result % int(delit) - int_result % int(delit[:-1]))] + ' ' # 987 => 900-80-7 
             elif 11 <= int(str(int_result % int(delit))) <= 19:
                 total += invbook[str(int_result % int(delit))]
                 break
